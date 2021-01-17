@@ -1,0 +1,36 @@
+            /*
+            " Customer can withdraw cash from an Automatic Teller Machine(ATM).
+                => WITHDRAW IS REFUSED IF AMOUNT ENTERED > CURRENT BALANCE
+                => WITHDRAW IS REFUSED IF AMOUNT ENTERED > DAILY LIMIT
+                => IF CURRENT BALANCE < 5000, THEN CHARGE OF 20 % IS MADE
+                => IF CURRENT BALANCE >= 5000, NO CHANGE IS MADE
+            Write a program which inputs a request for a sum of money, decides if a withdraw can be
+            made and calcultes any charge.Appropriate output messages should be included."
+            */
+
+            
+            int current = 3000;
+            Console.Write("enter daily limit: ");
+            int daily = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Enter Withdraw Amount: ");
+            int withdraw = Convert.ToInt32(Console.ReadLine());
+
+            if (withdraw>current & withdraw> daily)
+            {
+                Console.WriteLine("Error! Withdraw is Refused");
+            }
+            else
+            {
+                if (current < 5000) 
+                {
+                    int balance;
+                    balance= withdraw * (20/100);
+                    current = current - balance;
+
+                    Console.WriteLine("Withdraw amount is " + withdraw + " and current balance is " + current);
+                }
+                else
+                {
+                    Console.WriteLine("Withdraw amount is " + withdraw + " and current balance is " + current); 
+                }
+            }
